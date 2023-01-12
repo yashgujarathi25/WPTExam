@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table td{
+        padding: 20px;
+    }
+</style>
+<script>
+
+    var arr = [];
+
+    var person = function(nm, add, hob){
+        this.nm = nm;
+        this.add = add;
+        this.hob = hob;
+    }
+    
+    function add() {
+            var nm = document.getElementById("t1").value;
+            var addr = document.getElementById("t2").value;
+            var hob = document.getElementById("t3").value;
+            if(nm.length > 6){
+                alert("Name should be less than 6 Character !!!");
+            }
+            else{
+                var obj = new person(nm,addr,hob);
+            arr.push(obj);
+            alert(obj.nm);
+            document.getElementById("mydiv").innerHTML = "object Added Successfully...!!!";
+            }
+           
+    }
+
+    function display(){
+        document.getElementById("body").setAttribute("style","background-color:red");
+        var str = ""; 
+        for(var v of arr){
+            alert(v);
+            str += "<br>"+v.nm+" "+v.add+" "+v.hob;
+        }
+        document.getElementById("mydiv").innerHTML = str;
+
+    }
+
+    function changleColor(){
+        document.getElementById("t1").setAttribute("style","background-color:yellow")
+    }
+    function show() {
+            var nm = document.getElementById("t1").value;
+            var addr = document.getElementById("t2").value;
+            var Hobbies = document.getElementById("t3").value;
+            document.getElementById("mydiv").innerHTML = nm + addr + Hobbies;
+        }
+</script>
+<body style="background-color: skyblue; align-items: center;" id="body">
+    <div >
+        <form>
+        <table>
+            <tr>
+                <td>
+                    Name : 
+                </td>
+                <td>
+                    <input type="text" name="t1" id="t1" onclick="changleColor()" autofocus>
+                </td>
+            </tr>
+            <tr>
+                <td>Address : </td>
+                <td>
+                    <input type="text" name="t2" id="t2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hobbies : 
+                </td>
+                <td>
+                    <input type="text" name="t3" id="t3">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" name="btn" id="btn1" onclick="add()">Add Object</button>
+                </td>
+                <td>
+                    <button type="button" name="btn2" id="btn2" onclick="display()">Display Object</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="mydiv"></div>
+    </div>
+</body>
+</html>
